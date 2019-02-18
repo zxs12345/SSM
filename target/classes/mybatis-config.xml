@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!--配置log4j打印sql到控制台  -->
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
+	</settings>
+	
+	<typeAliases>
+<!-- 	扫描对应com.zxs.entity包下及其子包下的所有类取别名，
+        此时是默认别名/也可以在对应实体类使用@Alias("emp")自定义标识别名 -->
+		<package name="com.zxs.entity"/>
+	</typeAliases>
+	
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!--分页参数合理化，详查配置：https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md  -->
+			<property name="reasonable" value="true"/>
+		</plugin>
+	</plugins>
+</configuration>
+
